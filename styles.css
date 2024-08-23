@@ -1,0 +1,139 @@
+body {
+
+    background-image: url('images/Background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-section {
+    max-width: 100%;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: -150px;
+}
+
+h1 {
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.team-member {
+    background-color: #ffffffa9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 170px;
+    height: 200px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    top: -20px;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    transition: transform 0.3s;
+    margin-bottom: +10px;
+}
+
+.team-member:hover img {
+    transform: scale(1.4);
+}
+
+.team-member h3 {
+    color: #333;
+    margin: 10px 0 5px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.team-member p {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.team-member a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.team-member a:hover {
+    background-color: #0060c7;
+}
+
+.popup-info {
+    display: none;
+    position: absolute;
+    bottom: -110%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 170px;
+    background-color: #ffffffb0;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 100;
+    text-align: center;
+}
+
+.popup-info img {
+    border-radius: 5%;
+    width: 100px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.popup-info p {
+    color: #333;
+    font-size: 14px;
+    margin: 10px 0 5px;
+    padding-top: 1px;
+    padding-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.team-member a:hover + .popup-info {
+    display: block;
+}
