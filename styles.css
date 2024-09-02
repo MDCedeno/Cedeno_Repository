@@ -1,52 +1,57 @@
+/* General styling for body */
 body {
   background-image: url("images/Background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+/* Team Section */
 .team-section {
   max-width: 100%;
   text-align: center;
   box-sizing: border-box;
-  margin-top: 40px;
-  padding: 0;
+  padding: 20px;
+  margin-top: 20px;
 }
 
+/* Team Heading */
 h1 {
   color: #fff;
-  margin: 30px 0;
+  margin: 20px 0;
   padding: 10px;
+  font-size: 24px;
 }
 
+/* Team Container */
 .team-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  position: relative;
 }
 
+/* Team Member Card */
 .team-member {
   background-color: #ffffffa9;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  width: 170px;
-  height: 200px;
+  width: 150px;
   text-align: center;
   position: relative;
   transition: transform 0.4s, box-shadow 0.4s;
-  top: -20px;
 }
 
 .team-member:hover {
@@ -54,82 +59,60 @@ h1 {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Team Member Image */
 .team-member img {
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   transition: transform 0.4s;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .team-member:hover img {
-  transform: scale(1.4);
+  transform: scale(1.2);
 }
 
+/* Team Member Name */
 .team-member h3 {
   color: #333;
   margin: 8px 0 5px;
-  font-size: 16px;
+  font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+/* Team Member Role */
 .team-member p {
   color: #333;
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
+/* Profile Link */
 .team-member a {
   display: inline-block;
   padding: 5px 10px;
-  background-color: #123D6A;
+  background-color: #123d6a;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
   font-size: 12px;
   transition: background-color 0.3s;
+  position: relative;
+  z-index: 10;
 }
 
 .team-member a:hover {
   background-color: #0c2846;
 }
 
-.team-intro {
-  background-color: #36363696;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.team-intro h1 {
-  color: #ffffff;
-  margin: 20px auto;
-  overflow: hidden;
-  width: 800px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid white;
-}
-
-.team-intro p {
-  color: #ffffff;
-  font-size: 16px;
-  margin-bottom: 40px;
-  text-align: center;
-  row-gap: 5px;
-  line-height: 1.5;
-  justify-content: center;
-  width: 800px;
-}
-
+/* Popup Info */
 .popup-info {
   display: none;
   position: absolute;
-  bottom: -80%;
+  top: 110%;
   left: 50%;
   transform: translateX(-50%);
   width: 170px;
@@ -138,22 +121,102 @@ h1 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
   border-radius: 8px;
-  z-index: 100;
+  z-index: 20;
   text-align: center;
-}
-
-.popup-info p {
-  color: #333;
-  font-size: 14px;
-  margin: 10px 0 5px;
-  padding-top: 1px;
-  padding-bottom: 6px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* Display the popup on hover */
+.team-member a:hover + .popup-info {
+  display: block;
+}
+
+/* Adjust popup position based on the screen size to avoid overlap */
+@media (max-width: 768px) {
+  .popup-info {
+    top: auto;
+    bottom: -110%;
+  }
+}
+
+/* Team Intro Section */
+.team-intro {
+  background-color: #36363696;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+/* Team Intro Heading */
+.team-intro h1 {
+  color: #ffffff;
+  margin: 20px auto;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+  font-size: 18px;
+}
+
+/* Team Intro Paragraph */
+.team-intro p {
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 90%;
+  margin: 10px auto;
   text-align: center;
 }
 
-.team-member a:hover + .popup-info {
-  display: block;
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .team-container {
+    flex-direction: column;
+  }
+
+  .team-member {
+    width: 80%;
+    margin: 10px 0;
+  }
+
+  .team-member img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .team-intro h1 {
+    font-size: 16px;
+  }
+
+  .team-intro p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-member {
+    width: 90%;
+  }
+
+  .team-member h3,
+  .team-member p {
+    font-size: 12px;
+  }
+
+  .team-intro h1 {
+    font-size: 14px;
+  }
+
+  .team-intro p {
+    font-size: 12px;
+  }
+
+  .popup-info {
+    max-width: 90%;
+    width: auto;
+  }
 }
